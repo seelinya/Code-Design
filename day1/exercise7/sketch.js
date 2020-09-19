@@ -1,10 +1,10 @@
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(700, 700);
   noStroke();
 }
 
 function draw() {
-  background(0);
+  background(255, 255, 255, 0);
   fill(10, 10, 10, 0);
   stroke(168,248,255,255);
   rotate(PI / 4.2);
