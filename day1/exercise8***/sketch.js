@@ -4,7 +4,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(255, 255, 255, 0);
   fill(247, 197, 221);
   //stroke(168,248,255,255);
   triangle(300, 150, 330, 170, 330, 230);
