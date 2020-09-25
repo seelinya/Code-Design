@@ -1,7 +1,6 @@
 function setup() {
   createCanvas(700, 700);
   noStroke();
-
 }
 
 function draw() {
