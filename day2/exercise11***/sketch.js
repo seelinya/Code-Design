@@ -7,7 +7,7 @@ function draw() {
   background(255);
   stroke(100);
 
-  for (let x = 0; x < 800; x = x + 10) {
+  for (let x = 0; x < mouseX; x = x + 10) {
     console.log(x)
     triangle(0, 800, width / 2, x, 800, 800);
     stroke(200, 100, random(255));
