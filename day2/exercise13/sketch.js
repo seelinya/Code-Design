@@ -9,7 +9,7 @@ function draw() {
   //stroke(255);
 
   for (var x = 20; x <= mouseX; x += 50) {
-    for (var y = 20; y <= mouseX; y += 50) {
+    for (var y = 20; y <= mouseY; y += 50) {
     fill(random(255), 0, random(255));
     ellipse(x, y, 10, 10)
     //rect(x, 100, 10, 10)
