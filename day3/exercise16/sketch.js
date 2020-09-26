@@ -8,7 +8,7 @@ function setup() {
   let bgb=map(mouseX,0,width,0,255);
   background(0,200,bgb);
 
-  let ell=map(mouseX,0,width,0,197);
+  let ell=map(mouseY,0,width,0,197);
    ellipse(width/2, height/2, ell, ell);
    fill(0,100,ell);
 
