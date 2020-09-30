@@ -8,7 +8,7 @@ function draw() {
   //strokeWeight(1);
   //stroke(255);
 
-  for (var x = 20; x <= mouseX; x += 50) {
+  for (var x = x+20; x +x; x += 50) {
     for (var y = 20; y <= mouseX; y += 50) {
     fill(random(255), 150, random(200));
     ellipse(x, y, 4, 4)
