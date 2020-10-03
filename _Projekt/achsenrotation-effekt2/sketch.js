@@ -9,6 +9,7 @@ function draw() {
   background(0);
   strokeWeight(1);
   stroke(255);
+  //rectMode(CENTER);
 
   for (var x = 20; x <= 1800; x += 50) {
     for (var y = 20; y <= 1000; y += 50) {
