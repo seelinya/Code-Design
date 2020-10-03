@@ -9,35 +9,54 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(0,0,0,10);
+	noFill();
   strokeWeight(1);
   stroke(255);
-  translate(450, 450);
+  translate(500, 450);
   rotate(angle);
+  translate(-500, -450);
 
   strokeWeight(1);
   stroke(255);
-  //line(0, 0, 600, 90);
+  windrad();
 
-  //rotate(PI / 10);
-  translate(180, -60);
-  for (var x = 30; x <= 450; x = x + 30) {
-    for (var y = 30; y <= 120; y = y + 30) {
-    fill(255, 0);
-    //fill(random(255), 0, random(255, 0)); //kann eigentlich ausgeblendet werden
-    //ellipse(x, y, 10, 10) //kann eigentlich ausgeblendet werden
-    rect(x, y, 20, 20)
-    //line(0, 0, 600, 90);
-    }
-  }
 
-    for (var x = 30; x <= 450; x = x + 30) {
-      for (var y = 30; y <= 120; y = y + 30) {
-      fill(255, 0);
-      rect(x, y, 20, 20)
+  angle = angle + 1; //die letzte Zahl kann die Geschwindigkeit steuern
+
+}
+
+function windrad (){
+
+  //horizontal
+    for (var x = 870; x <= 1320; x = x + 30) {
+      for (var y = 310; y <= 425; y = y + 30) {
+        fill(255, 0);
+        rect(x, y, 30, 30)
       }
-  }
-  angle = angle + 0.3; //die letzte Zahl kann die Geschwindigkeit steuern
+    }
 
+    for (var x = 130; x <= 580; x = x + 30) {
+      for (var y = 310; y <= 425; y = y + 30) {
+        rect(x, y, 30, 30)
+      }
+    }
+
+    //vertika0
+      for (var x = 682; x <= 800; x = x + 30) {
+        for (var y = -230; y <= 220; y = y + 30) {
+          fill(255, 0);
+          rect(x, y, 30, 30)
+        }
+      }
+
+      for (var x = 682; x <= 800; x = x + 30) {
+        for (var y = 510; y <= 960; y = y + 30) {
+          rect(x, y, 30, 30)
+        }
+      }
+
+    line(610, 370, 870, 370);
+    line(742, 220, 742, 510);
 
 }
