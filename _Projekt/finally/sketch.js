@@ -15,12 +15,11 @@ function draw() {
   noStroke();
   background(255, 255, 100);
   fill(10, 200, 50);
-
-
-
-//boden
+  //boden
   fill(10, 10, 10);
   rect(0, 660, 1440, 85);
+
+  translate(-300, -50);
 
 //Hausbody
   fill(237, 237, 237);
