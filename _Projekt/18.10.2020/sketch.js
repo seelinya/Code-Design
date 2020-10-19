@@ -1,8 +1,8 @@
 var gui;
-
 var wind = 3;
-var distanz = 25;
-
+let windMax = 30;
+//sliderRange(0, 100, 1);
+var tageszeit = 20;
 let angle = 0;
 
 function setup() {
@@ -12,48 +12,59 @@ function setup() {
   //noLoop();
   angleMode(DEGREES);
   gui = createGui('p5.gui');
-  gui.addGlobals('wind', 'distanz');
+  sliderRange(0, 20, 1);
+  gui.addGlobals('wind');
+  sliderRange(1, 24, 1);
+  gui.addGlobals('tageszeit');
 
 }
 
 function draw() {
-  for (var i = 10; i <= distanz; i++) {
-    background(distanz * i, 100, distanz * i)
+  for (var i = 2; i <= tageszeit; i++) {
+    background(tageszeit * i, 100, tageszeit * i)
   }
-  for (var i = 20; i <= distanz; i++) {
-    background(distanz * i, 10, distanz * i)
-  }
-
-  for (var i = 30; i <= distanz; i++) {
-    background(10, distanz * i, distanz * i)
+  for (var i = 4; i <= tageszeit; i++) {
+    background(tageszeit * i, 10, tageszeit * i)
   }
 
-  for (var i = 40; i <= distanz; i++) {
-    background(255, distanz * i, distanz * i)
+  for (var i = 6; i <= tageszeit; i++) {
+    background(10, tageszeit * i, tageszeit * i)
   }
 
-  for (var i = 50; i <= distanz; i++) {
-    background(distanz * i, distanz * i, 80)
+  for (var i = 8; i <= tageszeit; i++) {
+    background(255, tageszeit * i, tageszeit * i)
   }
 
-  for (var i = 60; i <= distanz; i++) {
-    background(distanz * i, 10, 80)
+  for (var i = 10; i <= tageszeit; i++) {
+    background(tageszeit * i, tageszeit * i, 80)
   }
 
-  for (var i = 70; i <= distanz; i++) {
-    background(distanz * i, 255, 80)
+  for (var i = 12; i <= tageszeit; i++) {
+    background(tageszeit * i, 10, 80)
   }
 
-  for (var i = 80; i <= distanz; i++) {
-    background(255, distanz * i, 80)
+  for (var i = 14; i <= tageszeit; i++) {
+    background(tageszeit * i, 255, 80)
   }
 
-  for (var i = 90; i <= distanz; i++) {
-    background(255, distanz * i, 255)
+  for (var i = 16; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 80)
   }
 
-  for (var i = 100; i <= distanz; i++) {
-    background(0, distanz * i, 0)
+  for (var i = 18; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 255)
+  }
+
+  for (var i = 20; i <= tageszeit; i++) {
+    background(0, tageszeit * i, 0)
+  }
+
+  for (var i = 22; i <= tageszeit; i++) {
+    background(100, tageszeit * i, 0)
+  }
+
+  for (var i = 24; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 255)
   }
 
   background(0, 0, 0, 100);
@@ -62,6 +73,7 @@ function draw() {
   windrad();
 
   angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
+
 
 }
 
