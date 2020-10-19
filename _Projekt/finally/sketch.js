@@ -1,19 +1,24 @@
 var gui;
 
 var wind = 10;
-var distanz = 25;
+var weather = 25;
 
 function setup() {
   createCanvas(1440, 745);
   noStroke();
   gui = createGui('p5.gui');
-  gui.addGlobals('wind', 'distanz');
+  gui.addGlobals('wind', 'weather');
   noLoop();
 }
 
+
+
 function draw() {
+  for (var i = 50; i <= wind; i++) {
+    background(weather * i, 100, weather * i);
+  }
   noStroke();
-  background(255, 255, 100);
+  //background(255, 255, 100);
   fill(10, 200, 50);
   //boden
   fill(10, 10, 10);
@@ -95,10 +100,6 @@ strokeWeight(2);
   strokeWeight(2);
   //background(242, 161, 184);
 
-  for (var i = 1; i <= wind; i++) {
-    strokeWeight(i);
-    rect(distanz * i, distanz * i, 100, 100);
-  }
 //}
 
 }

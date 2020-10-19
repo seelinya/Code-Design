@@ -7,22 +7,61 @@ let angle = 0;
 
 function setup() {
   createCanvas(1800, 1000)
-  background(0, 0, 0);
+  //background(0, 0, 0);
   //noStroke();
   //noLoop();
   angleMode(DEGREES);
   gui = createGui('p5.gui');
   gui.addGlobals('wind', 'distanz');
+
 }
 
 function draw() {
-  background(0, 0, 0, 150);
+  for (var i = 10; i <= distanz; i++) {
+    background(distanz * i, 100, distanz * i)
+  }
+  for (var i = 20; i <= distanz; i++) {
+    background(distanz * i, 10, distanz * i)
+  }
+
+  for (var i = 30; i <= distanz; i++) {
+    background(10, distanz * i, distanz * i)
+  }
+
+  for (var i = 40; i <= distanz; i++) {
+    background(255, distanz * i, distanz * i)
+  }
+
+  for (var i = 50; i <= distanz; i++) {
+    background(distanz * i, distanz * i, 80)
+  }
+
+  for (var i = 60; i <= distanz; i++) {
+    background(distanz * i, 10, 80)
+  }
+
+  for (var i = 70; i <= distanz; i++) {
+    background(distanz * i, 255, 80)
+  }
+
+  for (var i = 80; i <= distanz; i++) {
+    background(255, distanz * i, 80)
+  }
+
+  for (var i = 90; i <= distanz; i++) {
+    background(255, distanz * i, 255)
+  }
+
+  for (var i = 100; i <= distanz; i++) {
+    background(0, distanz * i, 0)
+  }
+
+  background(0, 0, 0, 100);
 	noFill();
   windmühle();
   windrad();
 
   angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
-
 
 }
 
@@ -69,7 +108,8 @@ function windrad (){
 
 function windmühle (){
   push();
-  noStroke();
+  //noStroke();
+  stroke(255, 255, 255, 30);//
   //boden
   //fill(10, 10, 10);
   //rect(0, 660, 1440, 85);
@@ -77,10 +117,12 @@ function windmühle (){
   translate(-137, 100);
 
 //Hausbody
-  fill(237, 237, 237);
+  //fill(237, 237, 237);
   beginShape();
-  vertex(740, 380);
-  vertex(1020, 380);
+  vertex(740, 383);
+  vertex(825, 395);
+  vertex(935, 395);
+  vertex(1020, 383);
   vertex(1040, 700);
   vertex(935, 720);
   vertex(825, 720);
@@ -88,7 +130,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //Hausdach
-  fill(150, 150, 150);
+  //fill(150, 150, 150);
   beginShape();
   vertex(880, 270);
   vertex(1040, 380);
@@ -98,7 +140,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //Haustür
-  fill(70, 70, 70);
+  //fill(70, 70, 70);
   beginShape();
   vertex(880, 560);
   vertex(925, 580);
@@ -108,12 +150,12 @@ function windmühle (){
   endShape(CLOSE);
 
 //fenter-mitte
-  stroke(150, 150, 150);
-  fill(10, 10, 10);
+  //stroke(150, 150, 150);
+  //fill(10, 10, 10);
   rect(866, 426, 28, 28);
 
 //fenter-links
-  fill(10, 10, 10);
+  //fill(10, 10, 10);
   beginShape();
   vertex(770, 419);
   vertex(795, 423);
@@ -122,7 +164,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //fenter-rechts
-  fill(10, 10, 10);
+  //fill(10, 10, 10);
   beginShape();
   vertex(960, 423);
   vertex(985, 419);
