@@ -1,22 +1,73 @@
 var gui;
-
 var wind = 3;
-var distanz = 25;
-
+let windMax = 30;
+//sliderRange(0, 100, 1);
+var tageszeit = 20;
 let angle = 0;
 
 function setup() {
   createCanvas(1800, 1000)
-  background(0, 0, 0);
+  //background(0, 0, 0);
   //noStroke();
   //noLoop();
   angleMode(DEGREES);
   gui = createGui('p5.gui');
-  gui.addGlobals('wind', 'distanz');
+  sliderRange(0, 20, 1);
+  gui.addGlobals('wind');
+  sliderRange(1, 24, 1);
+  gui.addGlobals('tageszeit');
+
 }
 
 function draw() {
-  background(0, 0, 0, 150);
+  for (var i = 2; i <= tageszeit; i++) {
+    background(tageszeit * i, 100, tageszeit * i)
+  }
+  for (var i = 4; i <= tageszeit; i++) {
+    background(tageszeit * i, 10, tageszeit * i)
+  }
+
+  for (var i = 6; i <= tageszeit; i++) {
+    background(10, tageszeit * i, tageszeit * i)
+  }
+
+  for (var i = 8; i <= tageszeit; i++) {
+    background(255, tageszeit * i, tageszeit * i)
+  }
+
+  for (var i = 10; i <= tageszeit; i++) {
+    background(tageszeit * i, tageszeit * i, 80)
+  }
+
+  for (var i = 12; i <= tageszeit; i++) {
+    background(tageszeit * i, 10, 80)
+  }
+
+  for (var i = 14; i <= tageszeit; i++) {
+    background(tageszeit * i, 255, 80)
+  }
+
+  for (var i = 16; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 80)
+  }
+
+  for (var i = 18; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 255)
+  }
+
+  for (var i = 20; i <= tageszeit; i++) {
+    background(0, tageszeit * i, 0)
+  }
+
+  for (var i = 22; i <= tageszeit; i++) {
+    background(100, tageszeit * i, 0)
+  }
+
+  for (var i = 24; i <= tageszeit; i++) {
+    background(255, tageszeit * i, 255)
+  }
+
+  background(0, 0, 0, 100);
 	noFill();
   windmühle();
   windrad();
@@ -69,7 +120,8 @@ function windrad (){
 
 function windmühle (){
   push();
-  noStroke();
+  //noStroke();
+  stroke(255, 255, 255, 30);//
   //boden
   //fill(10, 10, 10);
   //rect(0, 660, 1440, 85);
@@ -77,10 +129,12 @@ function windmühle (){
   translate(-137, 100);
 
 //Hausbody
-  fill(237, 237, 237);
+  //fill(237, 237, 237);
   beginShape();
-  vertex(740, 380);
-  vertex(1020, 380);
+  vertex(740, 383);
+  vertex(825, 395);
+  vertex(935, 395);
+  vertex(1020, 383);
   vertex(1040, 700);
   vertex(935, 720);
   vertex(825, 720);
@@ -88,7 +142,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //Hausdach
-  fill(150, 150, 150);
+  //fill(150, 150, 150);
   beginShape();
   vertex(880, 270);
   vertex(1040, 380);
@@ -98,7 +152,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //Haustür
-  fill(70, 70, 70);
+  //fill(70, 70, 70);
   beginShape();
   vertex(880, 560);
   vertex(925, 580);
@@ -108,12 +162,12 @@ function windmühle (){
   endShape(CLOSE);
 
 //fenter-mitte
-  stroke(150, 150, 150);
-  fill(10, 10, 10);
+  //stroke(150, 150, 150);
+  //fill(10, 10, 10);
   rect(866, 426, 28, 28);
 
 //fenter-links
-  fill(10, 10, 10);
+  //fill(10, 10, 10);
   beginShape();
   vertex(770, 419);
   vertex(795, 423);
@@ -122,7 +176,7 @@ function windmühle (){
   endShape(CLOSE);
 
 //fenter-rechts
-  fill(10, 10, 10);
+  //fill(10, 10, 10);
   beginShape();
   vertex(960, 423);
   vertex(985, 419);
