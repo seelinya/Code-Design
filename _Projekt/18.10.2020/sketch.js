@@ -22,10 +22,10 @@ function setup() {
 function draw() {
   background(0, 10);
 	noFill();
-  hintergrund();
   windmuehle();
   windrad();
   schnee();
+  hintergrund();
   angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
 
 }
@@ -39,7 +39,8 @@ function hintergrund() {
     let newcolor = lerpColor(from, to, c);
     //colorMode(HSL);
     background(newcolor)
-
+    stroke(255, 255, 255);
+    strokeWeight(2);
 }
 
 function windrad (){
