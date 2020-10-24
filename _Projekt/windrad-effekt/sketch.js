@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 0, 150);
+  background(0, 0, 0, 100);
 	noFill();
   windmühle();
   windrad();
@@ -29,6 +29,7 @@ function draw() {
 function windrad (){
   push();
   strokeWeight(1);
+  //background(0, 1);
   stroke(255);
   //translate(1042, 470);
   translate(742, 370);
