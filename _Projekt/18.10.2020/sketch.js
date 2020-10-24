@@ -20,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 10);
+  background(0, 0, 10);
 	noFill();
   hintergrund();
   windmuehle();
@@ -45,7 +45,7 @@ function hintergrund() {
 
 function windrad (){
   push();
-  strokeWeight(3);
+  strokeWeight(1.5);
   //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
