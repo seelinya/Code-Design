@@ -1,13 +1,13 @@
 var gui;
 var wind = 3;
-let windMax = 30;
+let windMax = 180; //30
 //sliderRange(0, 100, 1);
-var tageszeit = 20;
+var temperatur = -15;
+var temperaturMax = 30;
 let angle = 0;
 
 function setup() {
   createCanvas(1800, 1000)
-  //background(0, 0, 0);
   //noStroke();
   //noLoop();
   angleMode(DEGREES);
@@ -15,72 +15,77 @@ function setup() {
   sliderRange(0, 20, 1);
   gui.addGlobals('wind');
   sliderRange(1, 24, 1);
-  gui.addGlobals('tageszeit');
+  gui.addGlobals('temperatur');
 
 }
 
 function draw() {
-  for (var i = 2; i <= tageszeit; i++) {
-    background(tageszeit * i, 100, tageszeit * i)
-  }
-  for (var i = 4; i <= tageszeit; i++) {
-    background(tageszeit * i, 10, tageszeit * i)
-  }
-
-  for (var i = 6; i <= tageszeit; i++) {
-    background(10, tageszeit * i, tageszeit * i)
-  }
-
-  for (var i = 8; i <= tageszeit; i++) {
-    background(255, tageszeit * i, tageszeit * i)
-  }
-
-  for (var i = 10; i <= tageszeit; i++) {
-    background(tageszeit * i, tageszeit * i, 80)
-  }
-
-  for (var i = 12; i <= tageszeit; i++) {
-    background(tageszeit * i, 10, 80)
-  }
-
-  for (var i = 14; i <= tageszeit; i++) {
-    background(tageszeit * i, 255, 80)
-  }
-
-  for (var i = 16; i <= tageszeit; i++) {
-    background(255, tageszeit * i, 80)
-  }
-
-  for (var i = 18; i <= tageszeit; i++) {
-    background(255, tageszeit * i, 255)
-  }
-
-  for (var i = 20; i <= tageszeit; i++) {
-    background(0, tageszeit * i, 0)
-  }
-
-  for (var i = 22; i <= tageszeit; i++) {
-    background(100, tageszeit * i, 0)
-  }
-
-  for (var i = 24; i <= tageszeit; i++) {
-    background(255, tageszeit * i, 255)
-  }
-
-  background(0, 0, 0, 100);
+  background(0, 10);
 	noFill();
+  hintergrund();
   windmühle();
   windrad();
-
+  schnee();
   angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
 
+}
+
+function hintergrund() {
+  for (var i = -15; i <= temperatur; i++) {
+    background(227, 251, 255)
+    stroke(0, 0, 128);
+  }
+
+  for (var i = -10; i <= temperatur; i++) {
+    background(238, 231, 255)
+    stroke(48, 30, 89);
+  }
+
+  for (var i = -5; i <= temperatur; i++) {
+    background(255, 241, 255)
+    stroke(56, 16, 28);
+  }
+
+  for (var i = 0; i <= temperatur; i++) {
+    background(255, 255, 255)
+    stroke(0, 0, 0);
+  }
+
+  for (var i = 5; i <= temperatur; i++) {
+    background(238, 255, 247)
+    stroke(62, 209, 179);
+  }
+
+  for (var i = 10; i <= temperatur; i++) {
+    background(229, 255, 220)
+    stroke(0, 191, 49);
+  }
+
+  for (var i = 15; i <= temperatur; i++) {
+    background(245, 255, 196)
+    stroke(0, 121, 142);
+  }
+
+  for (var i = 20; i <= temperatur; i++) {
+    background(255, 255, 224)
+    stroke(0, 255, 213);
+  }
+
+  for (var i = 25; i <= temperatur; i++) {
+    background(255, 242, 221)
+    stroke(239, 85, 0);
+  }
+
+  for (var i = 30; i <= temperatur; i++) {
+    background(180, 225, 225)
+    stroke(180, 0, 0);
+  }
 
 }
 
 function windrad (){
   push();
-  strokeWeight(1);
-  stroke(255);
+  strokeWeight(3);
   //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
@@ -118,10 +123,23 @@ function windrad (){
     pop();
 }
 
+function schnee (){
+translate(0, 0);
+for (var x = 30; x <= 1200; x += 50) {
+  for (var y = 30; y <= 1200; y += 50) {
+  fill(255, 255, 255, 0.5);
+  noStroke();
+  rotate(PI / random(90));
+  ellipse(x, y, 2, 2)
+  }
+}
+}
+
 function windmühle (){
   push();
+  strokeWeight(0.3);
   //noStroke();
-  stroke(255, 255, 255, 30);//
+  //stroke(255, 255, 255);//
   //boden
   //fill(10, 10, 10);
   //rect(0, 660, 1440, 85);

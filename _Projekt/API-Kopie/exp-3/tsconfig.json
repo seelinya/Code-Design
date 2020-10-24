@@ -1,0 +1,14 @@
+let person = {
+  name:"Petra",
+  age: 5,
+  height: 100,
+  state:"crying"
+}
+
+let person = {
+  "name":"Petra",
+  "age": 5,
+  "height": 100,
+  "state":"crying",
+  "eyecolor": "blue"
+}
