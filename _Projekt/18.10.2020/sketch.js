@@ -1,21 +1,32 @@
 var gui;
-var wind = 3;
+let key='06e280b15621fb57f14de8e91c05e79e'; // https://weatherstack.com/product -- dein key!
+var wind = 0;
 let windMax = 180; //30
 //sliderRange(0, 100, 1);
 var temperatur = -15;
 var temperaturMax = 30;
 let angle = 0;
 
+let input, button;
+
 function setup() {
   createCanvas(1800, 1000)
-  //noStroke();
-  //noLoop();
+  let url = 'http://api.weatherstack.com/current?access_key='+key+'&query=Zürich'; //Achtung gratis key unterstützt SSL nicht
+  loadJSON(url, gotWeather);
   angleMode(DEGREES);
+
   gui = createGui('p5.gui');
   sliderRange(0, 20, 1);
   gui.addGlobals('wind');
   sliderRange(1, 24, 1);
   gui.addGlobals('temperatur');
+
+  input = createInput();
+  input.position(80, 50);
+  button=createButton('SUBMIT');
+  button.position(250, 50);
+  button.mousePressed(reloadJson); //wenn der Button gedrueckt wird, müssen neue Daten von der API geladen werden (neuer Ort), dies macht die Funktion reloadJson
+
 
 }
 
@@ -25,7 +36,7 @@ function draw() {
   windmuehle();
   windrad();
   schnee();
-  angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
+  angle+=wind; //die letzte Zahl kann die Geschwindigkeit steuern
 
 }
 
@@ -33,19 +44,18 @@ function hintergrund() {
   //for (var i = -15; i <= temperatur; i++) {
 
     let c = map(temperatur, -15, 30, 0, 1);
-    let from = color(218, 165, 32, 100);
-    let to = color(72, 61, 139, 100);
+    let from = color(72, 61, 139, 150);
+    let to = color(218, 165, 32, 150);
     let newcolor = lerpColor(from, to, c);
     //colorMode(HSL);
     background(newcolor);
     stroke(255,255,255);
-
 }
 
 function windrad (){
   push();
   strokeWeight(1.5);
-  translate(237, 0);
+  translate(13, -25);
   //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
@@ -83,30 +93,61 @@ function windrad (){
     pop();
 }
 
+
+function gotWeather(weather) {
+    // Get the wind speed in km
+    windstaerke = weather.current.wind_speed; // Angaben in km!
+    wind = map(windstaerke, 0, 200, 0, 10); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 10 Grad weiter pro Frame
+
+    console.log(wind)
+
+}
+
+function reloadJson(){
+    // reload JSon kreiert eine neue url für die API mit dem Ort, den die User eingegeben haben
+
+    let ort = input.value();
+    let url = 'http://api.weatherstack.com/current?access_key='+key+'&query='+ort;
+
+    // dann lädt die Funktion gotWeather diese neuen Daten
+    loadJSON(url, gotWeather);
+}
+
+
+
 function schnee (){
   angleMode(RADIANS);
   noStroke();
   translate(0, 0);
+
+  let c = map(wind, 7, 20, 0, 1);
+  let from = color(200, 0.1);
+  let to = color(255, 255, 255, 10);
+  let special = lerpColor(from, to, c);
+
   for (var x = 20; x <= 1800; x += 50) {
     for (var y = 20; y <= 1000; y += 50) {
-    fill(random(255), 0, random(255));
+    fill(special);
     rotate(PI / random(90));
-    ellipse(x, y, 3, 3)
+    ellipse(x, y, 200, 500)
     }
   }
+
+  stroke(255,255,255);
   angleMode(DEGREES);
 }
 
 function windmuehle (){
   push();
-  strokeWeight(0.2);
+  strokeWeight(0.1);
+  scale(0.8, 0.8);
   //noStroke();
   //stroke(255, 255, 255);//
   //boden
   //fill(10, 10, 10);
   //rect(0, 660, 1440, 85);
 
-  translate(100, 100);
+  translate(65, 163);
 
 //Hausbody
   //fill(237, 237, 237);

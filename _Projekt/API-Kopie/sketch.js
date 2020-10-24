@@ -3,7 +3,7 @@
 let key='06e280b15621fb57f14de8e91c05e79e'; // https://weatherstack.com/product -- dein key!
 let windstaerke;
 let angle=0;
-var windrad=0;
+var wind=0;
 //var windstaerke = 3;
 //let windstaerkeMax = 180;
 
@@ -25,7 +25,7 @@ function setup() {
     noFill();
 
     gui = createGui('p5.gui');
-    gui.addGlobals('windrad');
+    gui.addGlobals('wind');
 
     input = createInput();
     input.position(80, 50);
@@ -36,7 +36,7 @@ function setup() {
 
 function draw() {
     background(0, 80);
-    angle+=windrad;
+    angle+=wind;
     //push();
     //translate(width/2, height/2);
     //rotate(angle);
@@ -92,9 +92,9 @@ function specialeffect (){
 function gotWeather(weather) {
     // Get the wind speed in km
     windstaerke = weather.current.wind_speed; // Angaben in km!
-    windrad = map(windstaerke, 0, 200, 0, 10); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 10 Grad weiter pro Frame
+    wind = map(windstaerke, 0, 200, 0, 10); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 10 Grad weiter pro Frame
 
-    console.log(windrad)
+    console.log(wind)
 
 }
 
