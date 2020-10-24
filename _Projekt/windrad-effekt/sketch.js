@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 0, 100);
+  background(0, 80);
 	noFill();
   windmühle();
   windrad();
@@ -34,7 +34,7 @@ function windrad (){
   //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
-  translate(-742, -370);
+  translate(-442, 70);
   //horizontal
     for (var x = 870; x <= 1320; x = x + 30) {
       for (var y = 310; y <= 425; y = y + 30) {

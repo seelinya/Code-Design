@@ -20,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 10);
+  background(0, 0, 0, 100);
 	noFill();
   hintergrund();
   windmuehle();
@@ -46,6 +46,7 @@ function hintergrund() {
 function windrad (){
   push();
   strokeWeight(1.5);
+  translate(237, 0);
   //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
@@ -84,27 +85,27 @@ function windrad (){
 }
 
 function schnee (){
-translate(0, 0);
-for (var x = 30; x <= 1200; x += 50) {
-  for (var y = 30; y <= 1200; y += 50) {
-  fill(255, 255, 255, 0.5);
   noStroke();
-  rotate(PI / random(90));
-  ellipse(x, y, 2, 2)
+  translate(0, 0);
+  for (var x = 20; x <= 1800; x += 50) {
+    for (var y = 20; y <= 1000; y += 50) {
+    fill(random(255), 0, random(255));
+    rotate(PI / random(90));
+    ellipse(x, y, 3, 3)
+    }
   }
-}
 }
 
 function windmuehle (){
   push();
-  strokeWeight(0.3);
+  strokeWeight(0.2);
   //noStroke();
   //stroke(255, 255, 255);//
   //boden
   //fill(10, 10, 10);
   //rect(0, 660, 1440, 85);
 
-  translate(-137, 100);
+  translate(100, 100);
 
 //Hausbody
   //fill(237, 237, 237);

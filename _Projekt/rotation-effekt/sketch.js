@@ -13,7 +13,7 @@ function draw() {
     for (var y = 20; y <= 1000; y += 50) {
     fill(random(255), 0, random(255));
     rotate(PI / random(90));
-    ellipse(x, y, 30, 30)
+    ellipse(x, y, 5, 5)
     }
   }
 
