@@ -23,7 +23,7 @@ function draw() {
   background(0, 10);
 	noFill();
   hintergrund();
-  windmühle();
+  windmuehle();
   windrad();
   schnee();
   angle = angle + wind; //die letzte Zahl kann die Geschwindigkeit steuern
@@ -31,55 +31,14 @@ function draw() {
 }
 
 function hintergrund() {
-  for (var i = -15; i <= temperatur; i++) {
-    background(227, 251, 255)
-    stroke(0, 0, 128);
-  }
+  //for (var i = -15; i <= temperatur; i++) {
 
-  for (var i = -10; i <= temperatur; i++) {
-    background(238, 231, 255)
-    stroke(48, 30, 89);
-  }
-
-  for (var i = -5; i <= temperatur; i++) {
-    background(255, 241, 255)
-    stroke(56, 16, 28);
-  }
-
-  for (var i = 0; i <= temperatur; i++) {
-    background(255, 255, 255)
-    stroke(0, 0, 0);
-  }
-
-  for (var i = 5; i <= temperatur; i++) {
-    background(238, 255, 247)
-    stroke(62, 209, 179);
-  }
-
-  for (var i = 10; i <= temperatur; i++) {
-    background(229, 255, 220)
-    stroke(0, 191, 49);
-  }
-
-  for (var i = 15; i <= temperatur; i++) {
-    background(245, 255, 196)
-    stroke(0, 121, 142);
-  }
-
-  for (var i = 20; i <= temperatur; i++) {
-    background(255, 255, 224)
-    stroke(0, 255, 213);
-  }
-
-  for (var i = 25; i <= temperatur; i++) {
-    background(255, 242, 221)
-    stroke(239, 85, 0);
-  }
-
-  for (var i = 30; i <= temperatur; i++) {
-    background(180, 225, 225)
-    stroke(180, 0, 0);
-  }
+    let c = map(temperatur, -15, 30, 0, 1);
+    let from = color(218, 165, 32);
+    let to = color(72, 61, 139);
+    let newcolor = lerpColor(from, to, c);
+    //colorMode(HSL);
+    background(newcolor)
 
 }
 
@@ -135,7 +94,7 @@ for (var x = 30; x <= 1200; x += 50) {
 }
 }
 
-function windmühle (){
+function windmuehle (){
   push();
   strokeWeight(0.3);
   //noStroke();
