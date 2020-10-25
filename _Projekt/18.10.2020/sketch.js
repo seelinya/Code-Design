@@ -1,34 +1,33 @@
 var gui;
-let key='06e280b15621fb57f14de8e91c05e79e'; // https://weatherstack.com/product -- dein key!
+let key='06e280b15621fb57f14de8e91c05e79e';
 var wind = 0;
-let windMax = 180; //30
-//sliderRange(0, 100, 1);
+let windMax = 40;
 var temperatur = -15;
-var temperaturMax = 30;
+var temperaturMax = 40;
 let angle = 0;
 
 let input, button;
 
+
 function setup() {
   createCanvas(1800, 1000)
-  let url = 'http://api.weatherstack.com/current?access_key='+key+'&query=Zürich'; //Achtung gratis key unterstützt SSL nicht
+  let url = 'http://api.weatherstack.com/current?access_key='+key+'&query=Zürich';
   loadJSON(url, gotWeather);
   angleMode(DEGREES);
 
   gui = createGui('p5.gui');
-  sliderRange(0, 20, 1);
+  sliderRange(0, 40, 1);
   gui.addGlobals('wind');
-  sliderRange(1, 24, 1);
+  sliderRange(1, 40, 1);
   gui.addGlobals('temperatur');
 
   input = createInput();
   input.position(80, 50);
-  button=createButton('SUBMIT');
+  button=createButton('check it out');
   button.position(250, 50);
-  button.mousePressed(reloadJson); //wenn der Button gedrueckt wird, müssen neue Daten von der API geladen werden (neuer Ort), dies macht die Funktion reloadJson
-
-
+  button.mousePressed(reloadJson);
 }
+
 
 function draw() {
 	noFill();
@@ -36,27 +35,26 @@ function draw() {
   windmuehle();
   windrad();
   schnee();
-  angle+=wind; //die letzte Zahl kann die Geschwindigkeit steuern
-
+  angle+=wind;
 }
 
-function hintergrund() {
-  //for (var i = -15; i <= temperatur; i++) {
 
-    let c = map(temperatur, -15, 30, 0, 1);
-    let from = color(72, 61, 139, 150);
-    let to = color(218, 165, 32, 150);
+
+function hintergrund() {
+    let c = map(temperatur, -15, 40, 0, 1);
+    let from = color(77, 137, 248, 150);
+    let to = color(255, 215, 0, 150);
     let newcolor = lerpColor(from, to, c);
-    //colorMode(HSL);
     background(newcolor);
     stroke(255,255,255);
 }
 
+
+
 function windrad (){
   push();
-  strokeWeight(1.5);
+  strokeWeight(1.8);
   translate(13, -25);
-  //translate(1042, 470);
   translate(742, 370);
   rotate(angle);
   translate(-742, -370);
@@ -94,6 +92,7 @@ function windrad (){
 }
 
 
+
 function gotWeather(weather) {
     // Get the wind speed in km
     windstaerke = weather.current.wind_speed; // Angaben in km!
@@ -103,13 +102,13 @@ function gotWeather(weather) {
 
 }
 
+
+
 function reloadJson(){
-    // reload JSon kreiert eine neue url für die API mit dem Ort, den die User eingegeben haben
 
     let ort = input.value();
     let url = 'http://api.weatherstack.com/current?access_key='+key+'&query='+ort;
 
-    // dann lädt die Funktion gotWeather diese neuen Daten
     loadJSON(url, gotWeather);
 }
 
@@ -120,16 +119,16 @@ function schnee (){
   noStroke();
   translate(0, 0);
 
-  let c = map(wind, 7, 20, 0, 1);
+  let c = map(wind, 20, 40, 0, 1);
   let from = color(200, 0.1);
-  let to = color(255, 255, 255, 10);
+  let to = color(230, 15);
   let special = lerpColor(from, to, c);
 
   for (var x = 20; x <= 1800; x += 50) {
     for (var y = 20; y <= 1000; y += 50) {
     fill(special);
     rotate(PI / random(90));
-    ellipse(x, y, 200, 500)
+    ellipse(x, y, 400, 500)
     }
   }
 
@@ -137,20 +136,16 @@ function schnee (){
   angleMode(DEGREES);
 }
 
+
+
 function windmuehle (){
   push();
-  strokeWeight(0.1);
+  strokeWeight(0.3);
   scale(0.8, 0.8);
-  //noStroke();
-  //stroke(255, 255, 255);//
-  //boden
-  //fill(10, 10, 10);
-  //rect(0, 660, 1440, 85);
 
   translate(65, 163);
 
 //Hausbody
-  //fill(237, 237, 237);
   beginShape();
   vertex(740, 383);
   vertex(825, 395);
@@ -163,7 +158,6 @@ function windmuehle (){
   endShape(CLOSE);
 
 //Hausdach
-  //fill(150, 150, 150);
   beginShape();
   vertex(880, 270);
   vertex(1040, 380);
@@ -173,7 +167,6 @@ function windmuehle (){
   endShape(CLOSE);
 
 //Haustür
-  //fill(70, 70, 70);
   beginShape();
   vertex(880, 560);
   vertex(925, 580);
@@ -183,12 +176,9 @@ function windmuehle (){
   endShape(CLOSE);
 
 //fenter-mitte
-  //stroke(150, 150, 150);
-  //fill(10, 10, 10);
   rect(866, 426, 28, 28);
 
 //fenter-links
-  //fill(10, 10, 10);
   beginShape();
   vertex(770, 419);
   vertex(795, 423);
@@ -197,7 +187,6 @@ function windmuehle (){
   endShape(CLOSE);
 
 //fenter-rechts
-  //fill(10, 10, 10);
   beginShape();
   vertex(960, 423);
   vertex(985, 419);
