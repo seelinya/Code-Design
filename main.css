@@ -29,8 +29,12 @@ h2 {
   font-size: 0.7rem;
   text-align: right;
   margin-right: 150px;
-  margin-top: 400px;
+  margin-top: 390px;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
 }
+
+
 
 a {
   color: #ff00ff;
