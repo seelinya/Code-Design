@@ -22,9 +22,9 @@ function setup() {
   gui.addGlobals('temperatur');
 
   input = createInput();
-  input.position(80, 50);
+  input.position(20, 170);
   button=createButton('check it out');
-  button.position(250, 50);
+  button.position(170, 171);
   button.mousePressed(reloadJson);
 }
 
@@ -36,6 +36,7 @@ function draw() {
   windrad();
   schnee();
   angle+=wind;
+
 }
 
 
