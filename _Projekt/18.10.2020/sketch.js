@@ -48,6 +48,7 @@ function hintergrund() {
     let newcolor = lerpColor(from, to, c);
     background(newcolor);
     stroke(255,255,255);
+
 }
 
 
